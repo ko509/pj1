@@ -1,0 +1,27 @@
+fx버전 쓰기ㅜ
+
+trainer
+영상에서는 tesseract executables는 libbz2-1.dll을 사용해서 그대로 했음
+training data는 폴더 단위로 잡힘.
+rtl을 'make box file'로 할 경우 tif나 png등 이미지 파일을 박스 파일로 바꿔줌.
+rtl을 'training with existing box'로 하면 학습한 언어 파일을 내보냄.
+
+*png나 jpg를 tiff로 바꾸는 건 https://convertio.co/kr/download/08ed1704cfd9fe0274fd33ed8657c6a5382328/ 에서 했음.
+그냥 이미지를 tiff로 바꾼다음에 이름을 kor(혹은 Hangul_vert).폰트이름.exp(인덱스번호)로 바꾸고 그 다음에 jtess에서 박스 파일을 만들었음
+이름 예시는 Hangul_vert.testfont.exp0
+박스 파일과 tif 파일의 이름이 같아야 박스가 레이어드됨
+언어는 tesseract에 있는 거랑 같아야하는지는 모르겠음. 왜냐면 동영상의 한글 txt를 바꾼 tiff/box파일 이름을 eng로 했는데도 잘됐기 때문.
+
+
+box editor에서 tiff, tif, png 파일을 오픈할 수 있음. 박스 파일이 있는 경우 박스 쳐져서 오픈되는데 보통 박스가 제대로 안붙어있음.
+박스를 새로 만들고 싶으면 insert를 누르면 되고 너비는 w, 높이는 h, 위치좌표는 x, y로 조절함
+박스가 아예 없는 경우 merge랑 split은 팝업 메세지가 뜸
+merge는 두 개 이상의 박스를 선택해서(box coordinates에서 shift 잡고 두 개 이상 누르면 됨) 합치는 역할임
+split은 박스를 2분의 1함. 내가 해볼 때는 너비가 반씩 줄었음
+
+tiff/box generator는 txt->tiff/box만 생성
+input 누르면 txt 파일만 선택할 수 있게 뜸(참고로 옛한글 모음집 긁어서 메모장에 넣고 인풋에 넣었더니 글자가 다 깨져서 나옴. 구ㅏㄺ 이런식이고 ㅡ+ㅡ+ㅣ 같은 건 네모처리됨)
+output은 tiff/box파일을 저장할 공간
+eng가 적혀 있는 곳은 언어 설정임
+
+?? https://www.youtube.com/watch?v=HgeksbqH0ng&feature=youtu.be 에 있는 걸 따라한 후에 그걸 box editor에서 오픈하면 왜인지 모르겟지만 사진 부분은 까맣게 나옴 그래도 읽히기는 했음
