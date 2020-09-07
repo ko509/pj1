@@ -7,9 +7,10 @@ def pj1():
     i=0
     for i in range(0,data):
         print(x, end=' ')
-        print(y-i*h, end=' ')
+        a=y-i*h
+        print(a, end=' ')
         print(x+w, end=' ')
-        print(y+h, end=' ')
+        print(a+h, end=' ')
         print("0")
 
 pj1()
